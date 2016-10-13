@@ -1,6 +1,8 @@
 ﻿{
   "dependencies": {
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+    "reactiveui": "6.5.2",
+    "Splat": "1.6.2"
   },
   "frameworks": {
     "uap10.0": {}
