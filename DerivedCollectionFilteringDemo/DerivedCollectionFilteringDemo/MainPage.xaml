@@ -1,10 +1,10 @@
-﻿<Page x:Class="DerivedCollectionDemo1.MainPage"
+﻿<Page x:Class="DerivedCollectionFilteringDemo.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:local="using:DerivedCollectionDemo1"
+      xmlns:local="using:DerivedCollectionFilteringDemo"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:model="using:DerivedCollectionDemo1.Model"
+      xmlns:model="using:DerivedCollectionFilteringDemo.Model"
       mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -13,7 +13,7 @@
             <RowDefinition Height="551*" />
         </Grid.RowDefinitions>
         <ListView x:Name="listView"
-                  ItemsSource="{x:Bind ViewModel.Items}"
+                  ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}"
                   Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:TodoItem">
@@ -50,6 +50,11 @@
                 Margin="100,10,0,0"
                 VerticalAlignment="Center"
                 Click="button_Click2" />
+
+        <ToggleSwitch IsOn="{x:Bind ViewModel.ShowTodoOnly, Mode=TwoWay}"
+                      OffContent="Show All"
+                      OnContent="Show open items"
+                      Margin="200,0,0,0" />
 
         <TextBlock x:Name="textBlock"
                    HorizontalAlignment="Right"
