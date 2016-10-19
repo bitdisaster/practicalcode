@@ -31,8 +31,7 @@ namespace DerivedCollectionFilteringDemo2.ViewModel
             set { this.RaiseAndSetIfChanged(ref _filterText, value); }
         }
 
-
-        public Subject<Predicate<TodoItem>> FilterObservable { get; set; } = new Subject<Predicate<TodoItem>>();
+        public Subject<Predicate<TodoItem>> FilterObservable { get; set; }
 
         public IReactiveDerivedList<TodoItemViewModel> Items
         {
@@ -53,6 +52,8 @@ namespace DerivedCollectionFilteringDemo2.ViewModel
             _dataService = new DataService();
             _rootList = new ReactiveList<TodoItemViewModel>();
             _rootList.ChangeTrackingEnabled = true;
+
+            FilterObservable = new Subject<Predicate<TodoItem>>();
 
             Items = _rootList.CreateDerivedCollection(x => x, x => !x.IsFilteredOut, (x, y) => x.Item.DueDate.CompareTo(y.Item.DueDate));
 

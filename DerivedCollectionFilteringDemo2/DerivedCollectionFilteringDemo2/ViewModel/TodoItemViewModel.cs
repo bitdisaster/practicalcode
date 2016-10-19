@@ -8,9 +8,7 @@ namespace DerivedCollectionFilteringDemo2.ViewModel
     {
         private bool _isFilteredOut;
 
-
         public TodoItem Item { get; set; }
-
 
         public bool IsFilteredOut
         {
