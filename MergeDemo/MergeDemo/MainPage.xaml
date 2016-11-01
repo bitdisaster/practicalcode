@@ -1,0 +1,45 @@
+﻿<Page x:Class="MergeDemo.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:MergeDemo"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:model="using:MergeDemo.Model"
+      RequestedTheme="Dark"
+      mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="89*" />
+            <RowDefinition Height="551*" />
+        </Grid.RowDefinitions>
+        <ListView x:Name="listView"
+                  ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}"
+                  Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:Message">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{x:Bind Date}"
+                                   Grid.Column="0"
+                                   Margin="0,0,30,0" />
+                        <TextBlock Text="{x:Bind Text}"
+                                   Grid.Column="1"
+                                   Margin="0,0,100,0" />
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="button"
+                Content="Load"
+                HorizontalAlignment="Left"
+                Margin="10,10,0,0"
+                VerticalAlignment="Center"
+                Click="button_Click" />
+
+    </Grid>
+</Page>

@@ -32,8 +32,7 @@ namespace DerivedCollectionGroupingDemo.ViewModel
             _rootList.ChangeTrackingEnabled = true;
 
             Groups = new ReactiveList<ItemGroup>();
-
-
+            
             Groups.Add(new ItemGroup { Title = "Todo", Items = _rootList.CreateDerivedCollection(x => x, x => x.IsDone == false, (x, y) => x.Item.DueDate.CompareTo(y.Item.DueDate)) });
             Groups.Add(new ItemGroup { Title = "Completed Tasks", Items = _rootList.CreateDerivedCollection(x => x, x => x.IsDone == true, (x, y) => x.Item.DueDate.CompareTo(y.Item.DueDate)) });
 
