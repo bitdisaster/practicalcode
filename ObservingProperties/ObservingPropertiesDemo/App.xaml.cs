@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 //test
+// test2
 
 namespace ObservingPropertiesDemo
 {
